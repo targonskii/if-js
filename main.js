@@ -1,3 +1,5 @@
+// Lesson 2
+
 // Task 1
 
 let user = 'John Doe';
@@ -48,3 +50,63 @@ for (i = 0; i < arr3.length; i++) {
         console.log(cell);
     }
 }
+
+// Lesson 3
+
+// Task 1
+
+const palindrome = (string) => {
+    string = string.toLowerCase(); // all letters to lowercase
+    return string === string.split('').reverse().join(''); // split string to array, reverse array, join array to string
+}
+console.log(palindrome('Левел'));
+
+// Task 2
+
+const min = (a,b) => {
+    if (a < b) {
+        return a;
+    } else if (a > b) {
+        return b;
+    } else {
+        return 'The values are equal';
+    }
+}
+console.log(min(-15,15));
+console.log(min(15,15));
+
+const max = (a,b) => {
+    if (a < b) {
+        return b;
+    } else if (a > b) {
+        return a;
+    } else {
+        return 'The values are equal';
+    }
+}
+console.log(max(-25,25));
+console.log(max(25,25));
+
+const min2 = (a,b) => {
+    return a > b ? b : a;
+}
+console.log(min2(17,-14));
+
+const max2 = (a,b) => {
+    return a > b ? a : b;
+}
+console.log(max2(233,184));
+
+// Task 3
+
+let arr0 = [12, 13, 20, 18, 70, 100, 43, 57, 50, 18];
+const replaceZero = (arr0) => {
+    for (i = 0; i < arr0.length; i++) {
+        let strArr = '' + arr0[i];
+        if (strArr.indexOf('0') !== -1) { 
+            arr0[i] = strArr.replaceAll('0', 'zero'); 
+        }
+    }
+}
+replaceZero(arr0);
+console.log(arr0);
