@@ -109,6 +109,7 @@ const replaceZero = (arr0) => {
     }
 }
 replaceZero(arr0);
+
 console.log(arr0);
 
 // Lesson 4
@@ -139,3 +140,4 @@ const callback = () => {
 for(let i = 0; i < prg.length; i++) {
     prg[i].addEventListener('click', callback())
 }
+
