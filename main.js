@@ -109,4 +109,35 @@ const replaceZero = (arr0) => {
     }
 }
 replaceZero(arr0);
+
 console.log(arr0);
+
+// Lesson 4
+
+// Task 1
+
+function sum(a) {
+    return function (b) {
+        return a + b
+    }
+}
+console.log(sum(5)(2));
+
+// Task 2
+
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+const prg = document.querySelectorAll('p');
+const callback = () => {
+    let colNum = 0;
+    return function() {
+        this.style.backgroundColor = colors[colNum];
+        colNum++;
+            if (colNum === colors.length) {
+                colNum = 0
+        }
+    }
+}
+for(let i = 0; i < prg.length; i++) {
+    prg[i].addEventListener('click', callback())
+}
+
