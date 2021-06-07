@@ -129,8 +129,8 @@ const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 const prg = document.querySelectorAll('p');
 const callback = () => {
     let colNum = 0;
-    return function() {
-        this.style.backgroundColor = colors[colNum];
+    return function(e) {
+        e.target.style.backgroundColor = colors[colNum];
         colNum++;
             if (colNum === colors.length) {
                 colNum = 0
@@ -141,3 +141,80 @@ for(let i = 0; i < prg.length; i++) {
     prg[i].addEventListener('click', callback())
 }
 
+// Lesson 5
+
+// Task 1
+
+let date = 'YYYY-MM-DD'
+
+const changeDate = (date) => {
+    const DD = date.slice(8, 10);
+    const MM = date.slice(5, 7);
+    const YYYY = date.slice(0, 4);
+    const newDate = DD + '.' + MM + '.' + YYYY;
+    if ((0 < MM) && (MM < 13) && (0 < DD) && (DD < 32)) {
+        return newDate;
+    }
+    return "Date invalid";
+}
+
+console.log(changeDate('2020-12-23'));
+console.log(changeDate('2020-13-23'));
+
+// Task 2
+
+const data = [
+    {
+      country: 'Russia',
+      city: 'Saint Petersburg',
+      hotel: 'Hotel Leopold',
+    },
+    {
+      country: 'Spain',
+      city: 'Santa Cruz de Tenerife',
+      hotel: 'Apartment Sunshine',
+    },
+    {
+      country: 'Slowakia',
+      city: 'Vysokie Tatry',
+      hotel: 'Villa Kunerad',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hostel Friendship',
+    },
+    {
+      country: 'Indonesia',
+      city: 'Bali',
+      hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+      country: 'Netherlands',
+      city: 'Rotterdam',
+      hotel: 'King Kong Hostel',
+    },
+    {
+      country: 'Marocco',
+      city: 'Ourika',
+      hotel: 'Rokoko Hotel',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+  ];
+
+const searchPlace = (search) => {
+    search = search.toLowerCase();
+    data.forEach(function(item) {
+        if (item.country.toLowerCase() === search || item.city.toLowerCase() === search || item.hotel.toLowerCase() === search) {
+            place = item;
+        }
+    });
+    return place;
+}
+console.log(searchPlace('rotterdam'));
+console.log(searchPlace('sloWaKIA'));
+console.log(searchPlace('Hostel Friendship'));
