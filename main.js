@@ -207,14 +207,20 @@ const data = [
   ];
 
 const searchPlace = (search) => {
-    search = search.toLowerCase();
-    data.forEach(function(item) {
-        if (item.country.toLowerCase() === search || item.city.toLowerCase() === search || item.hotel.toLowerCase() === search) {
-            place = item;
-        }
-    });
-    return place;
+     const arrPlace = [];
+     for (let i = 0; i < data.length; i++) {
+          const str = `${data[i].country}, ${data[i].city}, ${data[i].hotel}`;
+           if (str.includes(search)) {
+               arrPlace.push(str);
+           }
+     }
+     return arrPlace; 
 }
-console.log(searchPlace('rotterdam'));
-console.log(searchPlace('sloWaKIA'));
+console.log(searchPlace('Rotterdam'));
+console.log(searchPlace('Slowakia'));
 console.log(searchPlace('Hostel Friendship'));
+
+// Lesson 6
+
+// Task 1
+
