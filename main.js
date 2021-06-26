@@ -638,3 +638,71 @@ const obj1 = {
 
   console.log(deepEqual(obj1, obj2)); // true
   console.log(deepEqual(obj1, obj3)); // false
+
+  // Lesson 8
+
+  // Task
+
+const studentsData = [
+  {
+    firstName: 'Василий',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Java',
+  },
+  {
+    firstName: 'Иван',
+    lastName: 'Иванов',
+    admissionYear: 2018,
+    courseName: 'JavaScript',
+  },
+  {
+    firstName: 'Александр',
+    lastName: 'Федоров',
+    admissionYear: 2017,
+    courseName: 'Python',
+  },
+  {
+    firstName: 'Николай',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Android',
+  }
+];
+
+class User {
+  constructor(param) {
+    this.firstName = param.firstName;
+    this.lastName = param.lastName;
+  }
+
+  get fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+
+class Student extends User {
+  constructor(param) {
+    super(param);
+    this.admissionYear = param.admissionYear;
+    this.courseName = param.courseName;
+  }
+
+  get course() {
+    return (new Date()).getFullYear() - this.admissionYear;
+  }
+}
+
+class Students {
+  constructor(studentsData){
+    this.studentsData = studentsData;
+  }
+
+  getInfo() {
+    return this.studentsData.sort((oneStudent, twoStudent) => new Student(oneStudent).course - new Student(twoStudent).course).map(currentValue => 
+      new User(currentValue).fullName + ' - ' + new Student(currentValue).courseName + ', ' + new Student(currentValue).course + ' курс');
+  }
+}
+
+const students = new Students(studentsData);
+console.log(students.getInfo());
