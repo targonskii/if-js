@@ -65,7 +65,7 @@ const homesSliderDiv = document.createElement('div');
 homesSliderDiv.classList.add('homes__slider');
 homesH1.after(homesSliderDiv);
 
-data.slice([0], [4]).forEach((item) => {
+data.slice(0, 4).forEach((item) => {
   const div = document.createElement('div');
   homesSliderDiv.prepend(div);
 
