@@ -23,30 +23,30 @@ const data = [
       country: 'Germany',
       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
     },
-    // {
-    //   name: 'Radisson Blu Hotel',
-    //   city: 'Kyiv',
-    //   country: 'Ukraine',
-    //   imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
-    // },
-    // {
-    //   name: 'Paradise Hotel',
-    //   city: 'Guadalupe',
-    //   country: 'Mexico',
-    //   imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
-    // },
-    // {
-    //   name: 'Hotel Grindewald',
-    //   city: 'Interlaken',
-    //   country: 'Switzerland',
-    //   imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
-    // },
-    // {
-    //   name: 'The Andaman Resort',
-    //   city: 'Port Dickson',
-    //   country: 'Malaysia',
-    //   imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
-    // },
+    {
+      name: 'Radisson Blu Hotel',
+      city: 'Kyiv',
+      country: 'Ukraine',
+      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
+    },
+    {
+      name: 'Paradise Hotel',
+      city: 'Guadalupe',
+      country: 'Mexico',
+      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
+    },
+    {
+      name: 'Hotel Grindewald',
+      city: 'Interlaken',
+      country: 'Switzerland',
+      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
+    },
+    {
+      name: 'The Andaman Resort',
+      city: 'Port Dickson',
+      country: 'Malaysia',
+      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
+    },
   ];
 
 const body = document.querySelector('body');
@@ -57,15 +57,15 @@ body.prepend(sectionHomes);
 
 const homesH1 = document.createElement('h1');
 const nodeH1 = document.createTextNode('Homes guests loves');
-homesH1.prepend(nodeH1);
+homesH1.prepend(nodeH1); 
 sectionHomes.prepend(homesH1);
 homesH1.classList.add('homes__h1');
 
 const homesSliderDiv = document.createElement('div');
-homesSliderDiv.classList.add('homes__slider')
+homesSliderDiv.classList.add('homes__slider');
 homesH1.after(homesSliderDiv);
 
-data.forEach((item) => {
+data.slice([0], [4]).forEach((item) => {
   const div = document.createElement('div');
   homesSliderDiv.prepend(div);
 
