@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/css/main.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <!-- <link rel="icon" href="./images/svg-sprite.svg"> -->
+    <title>What do we offer</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header__main">
+                <div class="header__menu">
+                    <a href="#">
+                        <img src="./images/logo_triphouse_blue.svg" alt="logo" />
+                    </a>
+                    <ul>
+                        <li class="header__stays"><a href="#">Stays</a></li>
+                        <li class="header__attractions"><a href="#">Attractions</a></li>
+                        <li><div class="header__night"></div></li>
+                        <li><a href="./index_login.html"><div class="header__account"></div></a></li>
+                    </ul>
+                </div>
+                <div class="header__search">
+                    <p class="header__title">Discover stays<br />
+                        to live, work or just relax</p>
+                    <form action="">
+                        <div class="header__destination">
+                            <p>
+                                <label for="search">Your destination or hotel name</label>
+                            </p>
+                            <input id="search" type="text" name="search" placeholder="New York" />
+                        </div>
+                        <div class="header__date">
+                            <div class="header__in">
+                                <p>
+                                    <label for="in">Check-in - </label>
+                                </p>
+                                <input type="date" id="date" />
+                            </div>
+                            <div class="header__out">
+                                <p>
+                                    <label for="in">Check-out</label>
+                                </p>
+                                <input type="date" id="date" />
+                            </div>
+                        </div>
+                        <div class="header__people">
+                            <input type="number" placeholder="2 Adults — 0 Children — 1 Room" />
+                        </div>
+                        <button>Search</button>
+                    </form>
+                    <div class="header__people_filter">
+                        <div class="header__people_adults">
+                            <span>
+                                <label for="Adults">Adults</label>
+                            </span>
+                            <div class="header__people_count">
+                                <button class="minus" value="-">-</button>
+                                <input type="number" value="0" min="0" max="30" />
+                                <button class="plus" value="+">+</button>
+                            </div>
+                        </div>
+                        <div class="header__people_children">
+                            <span>
+                                <label for="Children">Children</label>
+                            </span>
+                            <div class="header__people_count">
+                                <button class="minus" value="-">-</button>
+                                <input type="number" value="0" min="0" max="10" />
+                                <button class="plus" value="+">+</button>
+                            </div>
+                        </div>
+                        <div class="header__people_rooms">
+                            <span>
+                                <label for="Rooms">Rooms</label>
+                            </span>
+                            <div class="header__people_count">
+                                <button class="minus" value="-">-</button>
+                                <input type="number" value="0" min="0" max="30" />
+                                <button class="plus" value="+">+</button>
+                            </div>
+                        </div>
+                        <div class="header__people_age">
+                            <span>
+                                <label for="Age">What is the age of the child you’re travelling with?</label>
+                            </span>
+                            <select>
+                                <option>0 years old</option>
+                                <option>1 years old</option>
+                                <option>2 years old</option>
+                                <option>3 years old</option>
+                                <option>4 years old</option>
+                                <option>5 years old</option>
+                                <option>6 years old</option>
+                                <option>7 years old</option>
+                                <option>8 years old</option>
+                                <option>9 years old</option>
+                                <option>10 years old</option>
+                                <option>11 years old</option>
+                                <option>12 years old</option>
+                                <option>13 years old</option>
+                                <option>14 years old</option>
+                                <option>15 years old</option>
+                                <option>16 years old</option>
+                                <option>17 years old</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__download">
+                    <a href="#"><img src="./images/google-play.svg" alt="google-play"></a>
+                    <a href="#"><img src="./images/app_store.svg" alt="app_store"></a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
