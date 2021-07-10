@@ -564,7 +564,7 @@ const sortCity = (arr4) => {
       ctr[`${arr4[key].country}`] = new Array();
       ctr[`${arr4[key].country}`].push(`${arr4[key].city}`);
     } else {
-      ctr[`${arr34[key].country}`].push(`${arr4[key].city}`);
+      ctr[`${arr4[key].country}`].push(`${arr4[key].city}`);
     }
   }
   return ctr;
