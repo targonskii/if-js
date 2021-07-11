@@ -125,8 +125,16 @@ header {
   flex-grow: 3;
   display: flex;
   padding-top: 45px;
+  width: 314px;
 }
-.header__people input {
+/* .header__people input {
+  width: 314px;
+} */
+.header__input_adults {
+  border-left: none;
+  padding-left: 30px;
+}
+.header__input_rooms {
   border-left: none;
   border-radius: 0px 8px 8px 0px;
 }
@@ -137,7 +145,7 @@ header {
   display: none;
   background-color: #ffffff;
   width: 259px;
-  height: 158px;
+  height: auto;
   position: absolute;
   top: 337px;
   right: 223px;
@@ -180,7 +188,7 @@ header {
   border: none;
   text-align: center;
 }
-/* .header__people_filter button.plus {
+/* .header__people_count button.minus {
   background-color: #f5bd41;
 } */
 .header__people_age {
