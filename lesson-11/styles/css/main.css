@@ -127,9 +127,6 @@ header {
   padding-top: 45px;
   width: 314px;
 }
-/* .header__people input {
-  width: 314px;
-} */
 .header__input_adults {
   border-left: none;
   padding-left: 30px;
@@ -181,6 +178,17 @@ header {
   color: #3077c6;
   background-color: #ffffff;
 }
+
+.header__people_children button.minus {
+  border: 1px solid #cecece;
+  color: #cecece;
+}
+
+.header__people_rooms button.minus {
+  border: 1px solid #cecece;
+  color: #cecece;
+}
+
 .header__people_filter input {
   width: 48px;
   height: 30px;

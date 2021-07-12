@@ -4,11 +4,12 @@ const childrenInput = document.querySelector('.header__input_children');
 const roomsInput = document.querySelector('.header__input_rooms');
 const peopleFilter = document.querySelector('.header__people_filter');
 
-const focusPeople = () => {
-  peopleFilter.style.display = 'block';
-  adultsInput.setAttribute('placeholder', '0 Adults     — ');
-  childrenInput.setAttribute('placeholder', '0 Children   — ');
-  roomsInput.setAttribute('placeholder', '0 Room');
+const focusPeople = (e) => {
+  if (e.target === adultsInput || childrenInput || roomsInput) {
+    peopleFilter.style.display = 'block';
+  } else {
+    peopleFilter.style.display = 'none';
+  }
 };
 peopleInput.addEventListener('click', focusPeople);
 
@@ -47,11 +48,21 @@ const clickAdults = (e) => {
   } else if (e.target.classList.contains('minus')) {
     --e.target.parentElement.querySelector('.header__people_adults input').value;
   }
-  if (e.target.parentElement.querySelector('.header__people_adults input').value < 0) {
+  if (e.target.parentElement.querySelector('.header__people_adults input').value <= 0) {
     e.target.parentElement.querySelector('.header__people_adults input').value = 0;
+    minus.style.border = '1px solid #CECECE';
+    minus.style.color = '#CECECE';
+  } else {
+    minus.style.border = '1px solid #3077c6';
+    minus.style.color = '#3077c6';
   }
-  if (e.target.parentElement.querySelector('.header__people_adults input').value > 30) {
+  if (e.target.parentElement.querySelector('.header__people_adults input').value >= 30) {
     e.target.parentElement.querySelector('.header__people_adults input').value = 30;
+    plus.style.border = '1px solid #CECECE';
+    plus.style.color = '#CECECE';
+  } else {
+    plus.style.border = '1px solid #3077c6';
+    plus.style.color = '#3077c6';
   }
   adultsInput.setAttribute('placeholder', `${e.target.parentElement.querySelector(('.header__people_adults input')).value}` + ' Adults     — ');
 };
@@ -65,11 +76,21 @@ const clickChildBtn = (e) => {
   } else if (e.target.classList.contains('minus')) {
     --e.target.parentElement.querySelector('.header__people_children input').value;
   }
-  if (e.target.parentElement.querySelector('.header__people_children input').value < 0) {
+  if (e.target.parentElement.querySelector('.header__people_children input').value <= 0) {
     e.target.parentElement.querySelector('.header__people_children input').value = 0;
+    minusChild.style.border = '1px solid #CECECE';
+    minusChild.style.color = '#CECECE';
+  } else {
+    minusChild.style.border = '1px solid #3077c6';
+    minusChild.style.color = '#3077c6';
   }
-  if (e.target.parentElement.querySelector('.header__people_children input').value > 10) {
+  if (e.target.parentElement.querySelector('.header__people_children input').value >= 10) {
     e.target.parentElement.querySelector('.header__people_children input').value = 10;
+    plusChild.style.border = '1px solid #CECECE';
+    plusChild.style.color = '#CECECE';
+  } else {
+    plusChild.style.border = '1px solid #3077c6';
+    plusChild.style.color = '#3077c6';
   }
   childrenInput.setAttribute('placeholder', `${e.target.parentElement.querySelector('.header__people_children input').value}` + ' Children   — ');
 };
@@ -83,11 +104,21 @@ const clickRoom = (e) => {
   } else if (e.target.classList.contains('minus')) {
     --e.target.parentElement.querySelector('.header__people_rooms input').value;
   }
-  if (e.target.parentElement.querySelector('.header__people_rooms input').value < 0) {
-    e.target.parentElement.querySelector('.header__people_rooms input').value = 0;
+  if (e.target.parentElement.querySelector('.header__people_rooms input').value <= 1) {
+    e.target.parentElement.querySelector('.header__people_rooms input').value = 1;
+    minusRoom.style.border = '1px solid #CECECE';
+    minusRoom.style.color = '#CECECE';
+  } else {
+    minusRoom.style.border = '1px solid #3077c6';
+    minusRoom.style.color = '#3077c6';
   }
-  if (e.target.parentElement.querySelector('.header__people_rooms input').value > 30) {
+  if (e.target.parentElement.querySelector('.header__people_rooms input').value >= 30) {
     e.target.parentElement.querySelector('.header__people_rooms input').value = 30;
+    plusRoom.style.border = '1px solid #CECECE';
+    plusRoom.style.color = '#CECECE';
+  } else {
+    plusRoom.style.border = '1px solid #3077c6';
+    plusRoom.style.color = '#3077c6';
   }
   roomsInput.setAttribute('placeholder', `${e.target.parentElement.querySelector('.header__people_rooms input').value}` + ' Room');
 };
