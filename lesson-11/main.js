@@ -5,7 +5,7 @@ const roomsInput = document.querySelector('.header__input_rooms');
 const peopleFilter = document.querySelector('.header__people_filter');
 
 const focusPeople = (e) => {
-  if (e.target === adultsInput || childrenInput || roomsInput) {
+  if (e.target === adultsInput || e.target === childrenInput || e.target === roomsInput) {
     peopleFilter.style.display = 'block';
   } else {
     peopleFilter.style.display = 'none';
@@ -20,7 +20,7 @@ const childrenFilter = document.querySelector('.header__people_age');
 const showChildren = (e) => {
   childrenFilter.style.display = 'block';
 
-  if (e.target.parentElement.querySelector('input').value >= 1) {
+  if (e.target.parentElement.querySelector('input').value >= 1 && e.target.parentElement.querySelector('input').value <= 9) {
     const select = document.querySelector('select').cloneNode(true);
     document.querySelector('select').after(select);
   }
