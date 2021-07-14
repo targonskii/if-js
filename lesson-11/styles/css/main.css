@@ -145,13 +145,16 @@ header {
   height: auto;
   position: absolute;
   top: 337px;
-  right: 223px;
+  right: 216px;
   border-radius: 8px;
   font-family: Roboto;
   font-weight: 400;
   font-size: 16px;
   color: #333333;
   padding: 22px;
+}
+.toggle_filter {
+  display: block;
 }
 .header__people_filter div {
   display: flex;

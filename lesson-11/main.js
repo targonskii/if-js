@@ -4,12 +4,8 @@ const childrenInput = document.querySelector('.header__input_children');
 const roomsInput = document.querySelector('.header__input_rooms');
 const peopleFilter = document.querySelector('.header__people_filter');
 
-const focusPeople = (e) => {
-  if (e.target === adultsInput || e.target === childrenInput || e.target === roomsInput) {
-    peopleFilter.style.display = 'block';
-  } else {
-    peopleFilter.style.display = 'none';
-  }
+const focusPeople = () => {
+  peopleFilter.classList.toggle('toggle_filter');
 };
 peopleInput.addEventListener('click', focusPeople);
 
