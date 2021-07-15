@@ -153,7 +153,7 @@ header {
   color: #333333;
   padding: 22px;
 }
-.toggle_filter {
+.visible_filter {
   display: block;
 }
 .header__people_filter div {
