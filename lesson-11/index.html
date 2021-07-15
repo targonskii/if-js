@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/css/main.css">
-    <!-- <link rel="stylesheet" href="./style.css"> -->
-    <!-- <link rel="icon" href="./images/svg-sprite.svg"> -->
     <title>What do we offer</title>
 </head>
 <body>
@@ -39,56 +37,58 @@
                                 <p>
                                     <label for="in">Check-in - </label>
                                 </p>
-                                <input type="date" id="date" />
+                                <input type="date" id="in" />
                             </div>
                             <div class="header__out">
                                 <p>
-                                    <label for="in">Check-out</label>
+                                    <label for="out">Check-out</label>
                                 </p>
-                                <input type="date" id="date" />
+                                <input type="date" id="out" />
                             </div>
                         </div>
                         <div class="header__people">
-                            <input type="number" placeholder="2 Adults — 0 Children — 1 Room" />
+                            <input class="header__input_adults" type="text" placeholder="2 Adults     — " />
+                            <input class="header__input_children" type="text" placeholder="0 Children   — " />
+                            <input class="header__input_rooms" type="text" placeholder="1 Room" />
                         </div>
                         <button>Search</button>
                     </form>
                     <div class="header__people_filter">
                         <div class="header__people_adults">
                             <span>
-                                <label for="Adults">Adults</label>
+                                <label for="adults">Adults</label>
                             </span>
                             <div class="header__people_count">
                                 <button class="minus" value="-">-</button>
-                                <input type="number" value="0" min="0" max="30" />
+                                <input id="adults" type="text" value="2" min="0" max="30" />
                                 <button class="plus" value="+">+</button>
                             </div>
                         </div>
                         <div class="header__people_children">
                             <span>
-                                <label for="Children">Children</label>
+                                <label for="children">Children</label>
                             </span>
                             <div class="header__people_count">
                                 <button class="minus" value="-">-</button>
-                                <input type="number" value="0" min="0" max="10" />
+                                <input id="children" type="text" value="0" min="0" max="10" />
                                 <button class="plus" value="+">+</button>
                             </div>
                         </div>
                         <div class="header__people_rooms">
                             <span>
-                                <label for="Rooms">Rooms</label>
+                                <label for="rooms">Rooms</label>
                             </span>
                             <div class="header__people_count">
                                 <button class="minus" value="-">-</button>
-                                <input type="number" value="0" min="0" max="30" />
+                                <input id="rooms" type="text" value="1" min="0" max="30" />
                                 <button class="plus" value="+">+</button>
                             </div>
                         </div>
                         <div class="header__people_age">
                             <span>
-                                <label for="Age">What is the age of the child you’re travelling with?</label>
+                                <label for="age">What is the age of the child you’re travelling with?</label>
                             </span>
-                            <select>
+                            <select id="age">
                                 <option>0 years old</option>
                                 <option>1 years old</option>
                                 <option>2 years old</option>
