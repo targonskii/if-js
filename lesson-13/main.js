@@ -1,29 +1,36 @@
 async function getData(url) {
-  let hotels = await fetch(url)
-    .then(response => response.json())
-    .then(hotels => hotels)
-    .catch(err => console.log(err))
-  return hotels;
+  const sessionHotelsStr = sessionStorage.getItem('hotels');
+  if (!sessionHotelsStr) {
+    const hotels = await fetch(url)
+      .then(response => response.json())
+      .then(hotels => hotels)
+      .catch(err => console.log(err));
+    sessionStorage.setItem('hotels', JSON.stringify(hotels));
+    return hotels;
+  } else {
+    const hotels = JSON.parse(sessionHotelsStr);
+    return hotels;
+  }
 }
 
 async function createHotels() {
-  let data = await getData('https://fe-student-api.herokuapp.com/api/hotels/popular');
+  const data = await getData('https://fe-student-api.herokuapp.com/api/hotels/popular');
   data.slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     homesSliderDiv.prepend(div);
-  
+
     const a = document.createElement('a');
     a.setAttribute('src', '#');
     div.prepend(a);
-  
+
     const img = document.createElement('img');
     img.setAttribute('src', `${item.imageUrl}`, 'alt', `${item.name}`);
     a.prepend(img);
-  
+
     const pHotel = document.createElement('p');
     pHotel.innerHTML = `${item.name}`;
     a.append(pHotel);
-  
+
     const pCityCountry = document.createElement('p');
     pCityCountry.innerHTML = `${item.city}` + ', ' + `${item.country}`;
     pHotel.after(pCityCountry);
