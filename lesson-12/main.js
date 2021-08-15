@@ -1,6 +1,6 @@
 async function getData(url) {
   let hotels = await fetch(url)
-    .then(responce => responce.json())
+    .then(response => response.json())
     .then(hotels => hotels)
     .catch(err => console.log(err))
   return hotels;
