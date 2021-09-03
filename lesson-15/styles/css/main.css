@@ -122,10 +122,17 @@ header {
   border-right: none;
 }
 .header__people {
-  flex-grow: 3;
-  display: flex;
-  padding-top: 45px;
+  padding-top: 24px;
   width: 314px;
+  background-color: #ffffff;
+  height: 64px;
+  margin-top: 45px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #383838;
 }
 .header__input_adults {
   border-left: none;
@@ -134,9 +141,6 @@ header {
 .header__input_rooms {
   border-left: none;
   border-radius: 0px 8px 8px 0px;
-}
-.header__people input::placeholder {
-  color: #383838;
 }
 .header__people_filter {
   display: none;
@@ -165,23 +169,28 @@ header {
   display: none;
 }
 
+.header__people_filter div label {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
+}
 .header__people_count {
   padding-bottom: 12px;
 }
-
-.header__people_filter span {
+.header__people_filter div span {
   padding-bottom: 12px;
 }
-
-.header__people_filter button {
+.header__people_filter div button {
   width: 30px;
   height: 30px;
   margin-top: 0px;
   border: 1px solid #3077c6;
   color: #3077c6;
   background-color: #ffffff;
+  font-size: 18px;
+  border-radius: 0px;
 }
-
 .header__people_children button.minus {
   border: 1px solid #cecece;
   color: #cecece;
@@ -192,16 +201,19 @@ header {
   color: #cecece;
 }
 
-.header__people_filter input {
+.header__people_filter div input {
   width: 48px;
   height: 30px;
   margin-top: 0px;
   border: none;
   text-align: center;
+  padding-left: 0px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
 }
-/* .header__people_count button.minus {
-  background-color: #f5bd41;
-} */
+
 .header__people_age {
   flex-direction: column;
 }
@@ -376,6 +388,7 @@ header {
 }
 
 .available {
+  display: none;
   padding: 0 105px;
   background: #eaf0f9;
 }

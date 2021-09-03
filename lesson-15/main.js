@@ -61,7 +61,7 @@ const clickAdults = (e) => {
     plus.style.border = '1px solid #3077c6';
     plus.style.color = '#3077c6';
   }
-  adultsInput.setAttribute('placeholder', `${targetAdultsInput.value}` + ' Adults     — ');
+  adultsInput.textContent = `${targetAdultsInput.value} Adults — `;
 };
 
 plus.addEventListener('click', clickAdults);
@@ -90,7 +90,7 @@ const clickChildBtn = (e) => {
     plusChild.style.border = '1px solid #3077c6';
     plusChild.style.color = '#3077c6';
   }
-  childrenInput.setAttribute('placeholder', `${targetChildrenInput.value}` + ' Children   — ');
+  childrenInput.textContent = `${targetChildrenInput.value} Children — `;
 };
 
 minusChild.addEventListener('click', clickChildBtn);
@@ -119,45 +119,19 @@ const clickRoom = (e) => {
     plusRoom.style.border = '1px solid #3077c6';
     plusRoom.style.color = '#3077c6';
   }
-  roomsInput.setAttribute('placeholder', `${targetRoomsInput.value}` + ' Room');
+  roomsInput.textContent = `${targetRoomsInput.value} Room`;
 };
 
 plusRoom.addEventListener('click', clickRoom);
 minusRoom.addEventListener('click', clickRoom);
 
 async function getData(url) {
-  let hotels = await fetch(url + `?search=${search.value}&adults=${adults.value}&children=${adults.value}&rooms=${adults.value}`)
+  let hotels = await fetch(url)
     .then(response => response.json())
     .then(hotels => hotels)
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
   return hotels;
 }
-
-async function availableHotels() {
-  let data = await getData('https://fe-student-api.herokuapp.com/api/hotels');
-  data.slice(0, 4).forEach((item) => {
-    const div = document.createElement('div');
-    availableSliderDiv.prepend(div);
-  
-    const a = document.createElement('a');
-    a.setAttribute('src', '#');
-    div.prepend(a);
-  
-    const img = document.createElement('img');
-    img.setAttribute('src', `${item.imageUrl}`, 'alt', `${item.name}`);
-    a.prepend(img);
-  
-    const pAvailable = document.createElement('p');
-    pAvailable.innerHTML = `${item.name}`;
-    a.append(pAvailable);
-  
-    const pAvCityCountry = document.createElement('p');
-    pAvCityCountry.innerHTML = `${item.city}` + ', ' + `${item.country}`;
-    pAvailable.after(pAvCityCountry);
-  });
-}
-
-availableHotels();
 
 const body = document.querySelector('body');
 
@@ -175,40 +149,103 @@ const availableSliderDiv = document.createElement('div');
 availableSliderDiv.classList.add('available__slider');
 availableH1.after(availableSliderDiv);
 
+async function availableHotels(urlStr) {
+  let data = await getData(urlStr);
+  data.slice(0, 4).forEach((item) => {
+    const div = document.createElement('div');
+    availableSliderDiv.prepend(div);
+  
+    const a = document.createElement('a');
+    a.setAttribute('src', '#');
+    div.prepend(a);
+  
+    const img = document.createElement('img');
+    img.setAttribute('src', `${item.imageUrl}`, 'alt', `${item.name}`);
+    a.prepend(img);
+  
+    const pAvailable = document.createElement('p');
+    pAvailable.innerHTML = `${item.name}`;
+    a.append(pAvailable);
+  
+    const pAvCityCountry = document.createElement('p');
+    pAvCityCountry.innerHTML = `${item.city}, ${item.country}`;
+    pAvailable.after(pAvCityCountry);
+  });
+}
+
 const searchForm = document.querySelector('.header__form');
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  // const searchInput = document.querySelector('[name="search"]');
-  // const adultsInput = document.querySelector('[name="adults"]');
-  // const childrenInput = document.querySelector('.header__input_children');
-  // const roomsInput = document.querySelector('#rooms');
-  // const ageSelect = document.getElementById('age');
+  const formData = new FormData(searchForm);
+  const values = Array.from(formData.entries());
+  console.log(values);
+  const url = new URL('https://fe-student-api.herokuapp.com/api/hotels');
+  const urlStr = url.toString() + `?search=${values[0][1]}&${values[1][0]}=${values[1][1]}&${values[2][0]}=${values[2][1]}`;
+  // const hideSection = document.querySelector('.available');
+  // console.log(hideSection);
+  // if (sectionAvailable.style.display === 'block') {
+  //   console.log(hideSection);
+  //   sectionAvailable.remove();
+  // }
+  availableHotels(urlStr);
+});
 
-// console.log(searchInput);
-// console.log(adultsInput);
-// console.log(searchInput.value);
-// console.log(roomsInput.value);
-  // const values = {
-  //   hotel: search.value,
-  //   adults: adults.value,
-  //   children: children.value,
-  //   age: age.value,
-  //   room: rooms.value
-  // };
+const showAvailable = () => {
+  sectionAvailable.style.display = 'block';
+};
+document.querySelector('.header__form_submit').addEventListener('click', showAvailable);
 
+const sortBubbles = (arr) => {
+  for (let n = 0; n < arr.length; n++) {
+    for (let i = 0; i < arr.length - 1 - n; i++) {
+      if (arr[i].name > arr[i + 1].name) {
+        let swap = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = swap;
+      }
+    }
+  }
+  return arr;
+};
 
-  // const formData = new FormData(searchForm);
-  // console.log(formData.entries());
-  // const values = Object.fromEntries(formData.entries());
-  // console.log(document.getElementById('rooms').innerHTML);
+async function createHotels() {
+  let data = await getData('https://fe-student-api.herokuapp.com/api/hotels/popular');
+  sortBubbles(data).slice(0, 4).forEach((item) => {
+    const div = document.createElement('div');
+    homesSliderDiv.append(div);
+  
+    const a = document.createElement('a');
+    a.setAttribute('src', '#');
+    div.prepend(a);
+  
+    const img = document.createElement('img');
+    img.setAttribute('src', `${item.imageUrl}`, 'alt', `${item.name}`);
+    a.prepend(img);
+  
+    const pHotel = document.createElement('p');
+    pHotel.innerHTML = `${item.name}`;
+    a.append(pHotel);
+  
+    const pCityCountry = document.createElement('p');
+    pCityCountry.innerHTML = `${item.city}` + ', ' + `${item.country}`;
+    pHotel.after(pCityCountry);
+  });
+}
 
-  // console.log(values);
-  // formData.get('search');
-  // console.log(formData.get('search'));
-  // formData.get('adults');
-  // console.log(formData.get('adults'));
-  // formData.get('children');
-  // formData.get('rooms');
-})
+createHotels();
+
+const sectionHomes = document.createElement('section');
+sectionHomes.classList.add('homes');
+body.append(sectionHomes);
+
+const homesH1 = document.createElement('h1');
+const nodeH1 = document.createTextNode('Homes guests loves');
+homesH1.prepend(nodeH1);
+sectionHomes.prepend(homesH1);
+homesH1.classList.add('homes__h1');
+
+const homesSliderDiv = document.createElement('div');
+homesSliderDiv.classList.add('homes__slider');
+homesH1.after(homesSliderDiv);
