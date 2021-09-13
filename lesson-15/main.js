@@ -7,6 +7,13 @@ const adultsInput = document.querySelector('.header__input_adults');
 const childrenInput = document.querySelector('.header__input_children');
 const roomsInput = document.querySelector('.header__input_rooms');
 const peopleFilter = document.querySelector('.header__people_filter');
+const plusChild = document.querySelector('.header__people_children button.plus');
+const minusChild = document.querySelector('.header__people_children button.minus');
+const childrenFilter = document.querySelector('.header__people_age');
+const minus = document.querySelector('.header__people_count button.minus');
+const plus = document.querySelector('.header__people_count button.plus');
+const minusRoom = document.querySelector('.header__people_rooms button.minus');
+const plusRoom = document.querySelector('.header__people_rooms button.plus');
 
 const filterData = {
   adults: {
@@ -31,10 +38,6 @@ const focusPeople = () => {
 };
 peopleInput.addEventListener('click', focusPeople);
 
-const plusChild = document.querySelector('.header__people_children button.plus');
-const minusChild = document.querySelector('.header__people_children button.minus');
-const childrenFilter = document.querySelector('.header__people_age');
-
 const showChildren = (e) => {
   childrenFilter.style.display = 'block';
   const targetInput = e.target.parentElement.querySelector('input');
@@ -54,11 +57,6 @@ const hideChildren = (e) => {
   }
 };
 minusChild.addEventListener('click', hideChildren);
-
-const minus = document.querySelector('.header__people_count button.minus');
-const plus = document.querySelector('.header__people_count button.plus');
-const minusRoom = document.querySelector('.header__people_rooms button.minus');
-const plusRoom = document.querySelector('.header__people_rooms button.plus');
 
 const clickAdults = (e) => {
   const targetAdultsInput = e.target.parentElement.querySelector('.header__people_adults input');
@@ -148,14 +146,14 @@ plusRoom.addEventListener('click', clickRoom);
 minusRoom.addEventListener('click', clickRoom);
 
 async function getData(url) {
-  let hotels = await fetch(url)
-    .then(response => {
+  const hotels = await fetch(url)
+    .then((response) => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       return response.json();
     })
-    .then(hotels => hotels)
+    .then((hotels) => hotels)
     .catch((err) => console.log(err.message));
   return hotels;
 }
@@ -177,7 +175,7 @@ availableSliderDiv.classList.add('available__slider');
 availableH1.after(availableSliderDiv);
 
 async function availableHotels(urlStr) {
-  let data = await getData(urlStr);
+  const data = await getData(urlStr);
   availableSliderDiv.innerHTML = '';
   data.slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
@@ -224,9 +222,12 @@ const addParamsToUrl = (urlString, queryParams) => {
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
+// Не могу сообразить, вот здесь бы проверялась валидность значения инпутов?
+
   const formData = new FormData(searchForm);
   const queryParams = Array.from(formData.entries());
   const urlStr = addParamsToUrl(apiHotelsUrl, queryParams);
+
   availableHotels(urlStr);
 });
 
@@ -239,7 +240,7 @@ const sortBubbles = (arr) => {
   for (let n = 0; n < arr.length; n++) {
     for (let i = 0; i < arr.length - 1 - n; i++) {
       if (arr[i].name > arr[i + 1].name) {
-        let swap = arr[i];
+        const swap = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = swap;
       }
@@ -249,7 +250,7 @@ const sortBubbles = (arr) => {
 };
 
 async function createHotels(url) {
-  let data = await getData(url);
+  const data = await getData(url);
   sortBubbles(data).slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     homesSliderDiv.append(div);

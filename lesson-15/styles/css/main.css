@@ -134,6 +134,13 @@ header {
   line-height: 21px;
   color: #383838;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .header__input_adults {
   border-left: none;
   padding-left: 30px;
