@@ -14,23 +14,25 @@ const minus = document.querySelector('.header__people_count button.minus');
 const plus = document.querySelector('.header__people_count button.plus');
 const minusRoom = document.querySelector('.header__people_rooms button.minus');
 const plusRoom = document.querySelector('.header__people_rooms button.plus');
+const spanAdults = document.querySelector('.header__people_count span.adults');
+const spanRooms = document.querySelector('.header__people_count span.rooms');
 
 const filterData = {
   adults: {
     min: 1,
     max: 30,
-    default: 2
+    default: 2,
   },
   children: {
     min: 0,
     max: 10,
-    default: 0
+    default: 0,
   },
   rooms: {
     min: 1,
-    max: 10,
-    default: 1
-  }
+    max: 30,
+    default: 1,
+  },
 };
 
 const focusPeople = () => {
@@ -40,8 +42,8 @@ peopleInput.addEventListener('click', focusPeople);
 
 const showChildren = (e) => {
   childrenFilter.style.display = 'block';
-  const targetInput = e.target.parentElement.querySelector('input');
-  if (targetInput.value >= 1 && targetInput.value <= 9) {
+  const targetSpan = e.target.parentElement.querySelector('span');
+  if (targetSpan.innerHTML >= 1 && targetSpan.innerHTML <= 9) {
     const select = document.querySelector('select').cloneNode(true);
     document.querySelector('select').after(select);
   }
@@ -49,7 +51,7 @@ const showChildren = (e) => {
 plusChild.addEventListener('click', showChildren);
 
 const hideChildren = (e) => {
-  if (e.target.parentElement.querySelector('input').value < 2) {
+  if (e.target.parentElement.querySelector('span').innerHTML < 2) {
     childrenFilter.style.display = 'none';
   } else {
     const select = document.querySelector('.header__people_age select');
@@ -59,87 +61,93 @@ const hideChildren = (e) => {
 minusChild.addEventListener('click', hideChildren);
 
 const clickAdults = (e) => {
-  const targetAdultsInput = e.target.parentElement.querySelector('.header__people_adults input');
+  const target = e.target.parentElement.querySelector('.header__people_count span');
+  const numTarget = Number(target.innerHTML);
+
   if (e.target.classList.contains('plus')) {
-    ++targetAdultsInput.value;
+    target.innerHTML = numTarget + 1;
   } else if (e.target.classList.contains('minus')) {
-    --targetAdultsInput.value;
+    target.innerHTML = numTarget - 1;
   }
-  if (targetAdultsInput.value <= filterData.adults.min) {
-    targetAdultsInput.value = filterData.adults.min;
+  if (target.innerHTML <= filterData.adults.min) {
+    target.innerHTML = filterData.adults.min;
     minus.style.border = '1px solid #CECECE';
     minus.style.color = '#CECECE';
   } else {
     minus.style.border = '1px solid #3077c6';
     minus.style.color = '#3077c6';
   }
-  if (targetAdultsInput.value >= filterData.adults.max) {
-    targetAdultsInput.value = filterData.adults.max;
+  if (target.innerHTML >= filterData.adults.max) {
+    target.innerHTML = filterData.adults.max;
     plus.style.border = '1px solid #CECECE';
     plus.style.color = '#CECECE';
   } else {
     plus.style.border = '1px solid #3077c6';
     plus.style.color = '#3077c6';
   }
-  adultsInput.textContent = `${targetAdultsInput.value} Adults — `;
+  adultsInput.textContent = `${target.innerHTML} Adults — `;
 };
 
 plus.addEventListener('click', clickAdults);
 minus.addEventListener('click', clickAdults);
 
 const clickChildBtn = (e) => {
-  const targetChildrenInput = e.target.parentElement.querySelector('.header__people_children input');
+  const target = e.target.parentElement.querySelector('.header__people_count span');
+  const numTarget = Number(target.innerHTML);
+
   if (e.target.classList.contains('plus')) {
-    ++targetChildrenInput.value;
+    target.innerHTML = numTarget + 1;
   } else if (e.target.classList.contains('minus')) {
-    --targetChildrenInput.value;
+    target.innerHTML = numTarget - 1;
   }
-  if (targetChildrenInput.value <= filterData.children.min) {
-    targetChildrenInput.value = filterData.children.min;
+  if (target.innerHTML <= filterData.children.min) {
+    target.innerHTML = filterData.children.min;
     minusChild.style.border = '1px solid #CECECE';
     minusChild.style.color = '#CECECE';
   } else {
     minusChild.style.border = '1px solid #3077c6';
     minusChild.style.color = '#3077c6';
   }
-  if (targetChildrenInput.value >= filterData.children.max) {
-    targetChildrenInput.value = filterData.children.max;
+  if (target.innerHTML >= filterData.children.max) {
+    target.innerHTML = filterData.children.max;
     plusChild.style.border = '1px solid #CECECE';
     plusChild.style.color = '#CECECE';
   } else {
     plusChild.style.border = '1px solid #3077c6';
     plusChild.style.color = '#3077c6';
   }
-  childrenInput.textContent = `${targetChildrenInput.value} Children — `;
+  childrenInput.textContent = `${target.innerHTML} Children — `;
 };
 
 minusChild.addEventListener('click', clickChildBtn);
 plusChild.addEventListener('click', clickChildBtn);
 
 const clickRoom = (e) => {
-  const targetRoomsInput = e.target.parentElement.querySelector('.header__people_rooms input');
+  const target = e.target.parentElement.querySelector('.header__people_count span');
+  const numTarget = Number(target.innerHTML);
+
   if (e.target.classList.contains('plus')) {
-    ++targetRoomsInput.value;
+    target.innerHTML = numTarget + 1;
   } else if (e.target.classList.contains('minus')) {
-    --targetRoomsInput.value;
+    target.innerHTML = numTarget - 1;
   }
-  if (targetRoomsInput.value <= filterData.rooms.min) {
-    targetRoomsInput.value = filterData.rooms.min;
+  if (target.innerHTML <= filterData.rooms.min) {
+    target.innerHTML = filterData.rooms.min;
     minusRoom.style.border = '1px solid #CECECE';
     minusRoom.style.color = '#CECECE';
   } else {
     minusRoom.style.border = '1px solid #3077c6';
     minusRoom.style.color = '#3077c6';
   }
-  if (targetRoomsInput.value >= filterData.rooms.max) {
-    targetRoomsInput.value = filterData.rooms.max;
+  if (target.innerHTML >= filterData.rooms.max) {
+    target.innerHTML = filterData.rooms.max;
     plusRoom.style.border = '1px solid #CECECE';
     plusRoom.style.color = '#CECECE';
   } else {
     plusRoom.style.border = '1px solid #3077c6';
     plusRoom.style.color = '#3077c6';
   }
-  roomsInput.textContent = `${targetRoomsInput.value} Room`;
+  roomsInput.textContent = `${target.innerHTML} Room`;
 };
 
 plusRoom.addEventListener('click', clickRoom);
@@ -199,7 +207,7 @@ async function availableHotels(urlStr) {
   });
 }
 
-const searchForm = document.querySelector('.header__form');
+const searchForm = document.querySelector('.js-header-form');
 
 const addParamsToUrl = (urlString, queryParams) => {
   const url = new URL(urlString);
@@ -222,9 +230,9 @@ const addParamsToUrl = (urlString, queryParams) => {
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-// Не могу сообразить, вот здесь бы проверялась валидность значения инпутов?
-
   const formData = new FormData(searchForm);
+  formData.set('adults', spanAdults.innerHTML);
+  formData.set('rooms', spanRooms.innerHTML);
   const queryParams = Array.from(formData.entries());
   const urlStr = addParamsToUrl(apiHotelsUrl, queryParams);
 
