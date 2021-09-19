@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/css/main.css">
+    <title>What do we offer</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header__main">
+                <div class="header__menu">
+                    <a href="#">
+                        <img src="./images/logo_triphouse_blue.svg" alt="logo" />
+                    </a>
+                    <ul>
+                        <li class="header__stays"><a href="#">Stays</a></li>
+                        <li class="header__attractions"><a href="#">Attractions</a></li>
+                        <li><div class="header__night"></div></li>
+                        <li><a href="./index_login.html"><div class="header__account"></div></a></li>
+                    </ul>
+                </div>
+                <div class="header__search">
+                    <p class="header__title">Discover stays<br />
+                        to live, work or just relax</p>
+                    <form class="header__form js-header-form">
+                        <div class="header__destination js-header-destination">
+                            <p>
+                                <label for="search">Your destination or hotel name</label>
+                            </p>
+                            <input id="search" type="text" name="search" placeholder="New York" />
+                        </div>
+                        <div class="header__date js-header-date">
+                            <div class="header__in">
+                                <p>
+                                    <label for="in">Check-in - </label>
+                                </p>
+                                <input type="date" id="in" />
+                            </div>
+                            <div class="header__out">
+                                <p>
+                                    <label for="out">Check-out</label>
+                                </p>
+                                <input type="date" id="out" />
+                            </div>
+                        </div>
+                        <div class="header__people js-header-people">
+                            <span class="header__input_adults" id="adults">2 Adults — </span>
+                            <span class="header__input_children" id="children"> 0 Children — </span>
+                            <span class="header__input_rooms" id="rooms"> 1 Room</span>
+                        </div>
+                        <button class="header__form_submit" type="submit">Search</button>
+                        <div class="header__people_filter">
+                            <div class="header__people_adults">
+                                <span>Adults</span>
+                                <div class="header__people_count">
+                                    <button class="minus" type="button" value="-">-</button>
+                                    <span class="adults" name="adults">2</span>
+                                    <button class="plus" type="button" value="+">+</button>
+                                </div>
+                            </div>
+                            <div class="header__people_children">
+                                <span>Children</span>
+                                <div class="header__people_count">
+                                    <button class="minus" type="button" value="-">-</button>
+                                    <span class="children">0</span>
+                                    <button class="plus" type="button" value="+">+</button>
+                                </div>
+                            </div>
+                            <div class="header__people_rooms">
+                                <span>Rooms</span>
+                                <div class="header__people_count">
+                                    <button class="minus" type="button" value="-">-</button>
+                                    <span class="rooms" name="rooms">1</span>
+                                    <button class="plus" type="button" value="+">+</button>
+                                </div>
+                            </div>
+                            <div class="header__people_age">
+                                <span>
+                                    <label for="age">What is the age of the child you’re travelling with?</label>
+                                </span>
+                                <select id="age" name="children">
+                                    <option value="0">0 years old</option>
+                                    <option value="1">1 years old</option>
+                                    <option value="2">2 years old</option>
+                                    <option value="3">3 years old</option>
+                                    <option value="4">4 years old</option>
+                                    <option value="5">5 years old</option>
+                                    <option value="6">6 years old</option>
+                                    <option value="7">7 years old</option>
+                                    <option value="8">8 years old</option>
+                                    <option value="9">9 years old</option>
+                                    <option value="10">10 years old</option>
+                                    <option value="11">11 years old</option>
+                                    <option value="12">12 years old</option>
+                                    <option value="13">13 years old</option>
+                                    <option value="14">14 years old</option>
+                                    <option value="15">15 years old</option>
+                                    <option value="16">16 years old</option>
+                                    <option value="17">17 years old</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="header__download">
+                    <a href="#"><img src="./images/google-play.svg" alt="google-play"></a>
+                    <a href="#"><img src="./images/app_store.svg" alt="app_store"></a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
