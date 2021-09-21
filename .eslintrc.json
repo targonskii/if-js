@@ -23,6 +23,6 @@
         "no-shadow": 0,
         "no-restricted-syntax": 0,
         "no-useless-concat": 0,
-        "import/extensions": 1
+        "import/extensions": 0
     }
 }
