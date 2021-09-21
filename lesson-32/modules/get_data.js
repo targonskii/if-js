@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export async function getData(url) {
   const hotels = await fetch(url)
     .then((response) => {

@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/prefer-default-export */
 export const sortBubbles = (arr) => {
   for (let n = 0; n < arr.length; n++) {
     for (let i = 0; i < arr.length - 1 - n; i++) {

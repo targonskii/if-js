@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import { getData } from './get_data.js';
 
 const body = document.querySelector('body');

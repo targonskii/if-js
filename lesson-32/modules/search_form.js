@@ -1,5 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/prefer-default-export */
 import { availableHotels } from './available_hotels.js';
 
 const apiBaseUrl = 'https://fe-student-api.herokuapp.com/api/';

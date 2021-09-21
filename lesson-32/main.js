@@ -1,6 +1,4 @@
-/* eslint-disable import/extensions */
 import { getData } from './modules/get_data.js';
-// eslint-disable-next-line object-curly-newline
 import { clickAdults, clickChildBtn, clickRoom, hideChildren, showChildren, focusPeople } from './modules/filter.js';
 import { search } from './modules/search_form.js';
 import { sortBubbles } from './modules/sort_bubbles.js';
