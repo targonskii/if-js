@@ -25,7 +25,7 @@ const addParamsToUrl = (urlString, queryParams) => {
   return url.toString();
 };
 
-export const search = (event) => {
+const search = (event) => {
   event.preventDefault();
   const formData = new FormData(searchForm);
   formData.set('adults', spanAdults.innerHTML);
@@ -35,3 +35,5 @@ export const search = (event) => {
 
   availableHotels(urlStr);
 };
+
+export default search;

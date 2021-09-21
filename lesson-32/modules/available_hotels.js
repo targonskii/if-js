@@ -1,4 +1,4 @@
-import { getData } from './get_data.js';
+import getData from './get_data.js';
 
 const body = document.querySelector('body');
 
