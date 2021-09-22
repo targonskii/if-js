@@ -37,6 +37,7 @@ async function createHotels(url) {
   sortBubbles(data).slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     homesSliderDiv.append(div);
+
     const a = document.createElement('a');
     a.setAttribute('src', '#');
     div.prepend(a);
@@ -46,6 +47,7 @@ async function createHotels(url) {
     const pHotel = document.createElement('p');
     pHotel.innerHTML = `${item.name}`;
     a.append(pHotel);
+
     const pCityCountry = document.createElement('p');
     pCityCountry.innerHTML = `${item.city}` + ', ' + `${item.country}`;
     pHotel.after(pCityCountry);

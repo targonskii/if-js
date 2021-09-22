@@ -26,6 +26,7 @@ export async function availableHotels(urlStr) {
   data.slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     availableSliderDiv.prepend(div);
+    
     const a = document.createElement('a');
     a.setAttribute('src', '#');
     div.prepend(a);
@@ -35,6 +36,7 @@ export async function availableHotels(urlStr) {
     const pAvailable = document.createElement('p');
     pAvailable.innerHTML = `${item.name}`;
     a.append(pAvailable);
+    
     const pAvCityCountry = document.createElement('p');
     pAvCityCountry.innerHTML = `${item.city}, ${item.country}`;
     pAvailable.after(pAvCityCountry);
