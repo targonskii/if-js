@@ -1,7 +1,7 @@
-import { getData } from './modules/get_data.js';
+import getData from './modules/get_data.js';
 import { clickAdults, clickChildBtn, clickRoom, hideChildren, showChildren, focusPeople } from './modules/filter.js';
-import { search } from './modules/search_form.js';
-import { sortBubbles } from './modules/sort_bubbles.js';
+import search from './modules/search_form.js';
+import sortBubbles from './modules/sort_bubbles.js';
 import { showAvailable } from './modules/available_hotels.js';
 
 const apiBaseUrl = 'https://fe-student-api.herokuapp.com/api/';
@@ -37,7 +37,6 @@ async function createHotels(url) {
   sortBubbles(data).slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     homesSliderDiv.append(div);
-
     const a = document.createElement('a');
     a.setAttribute('src', '#');
     div.prepend(a);
@@ -47,7 +46,6 @@ async function createHotels(url) {
     const pHotel = document.createElement('p');
     pHotel.innerHTML = `${item.name}`;
     a.append(pHotel);
-
     const pCityCountry = document.createElement('p');
     pCityCountry.innerHTML = `${item.city}` + ', ' + `${item.country}`;
     pHotel.after(pCityCountry);
