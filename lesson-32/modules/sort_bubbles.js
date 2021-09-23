@@ -1,4 +1,4 @@
-export const sortBubbles = (arr) => {
+const sortBubbles = (arr) => {
   for (let n = 0; n < arr.length; n++) {
     for (let i = 0; i < arr.length - 1 - n; i++) {
       if (arr[i].name > arr[i + 1].name) {
@@ -10,3 +10,5 @@ export const sortBubbles = (arr) => {
   }
   return arr;
 };
+
+export default sortBubbles;

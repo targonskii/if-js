@@ -1,4 +1,4 @@
-export async function getData(url) {
+async function getData(url) {
   const hotels = await fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -10,3 +10,5 @@ export async function getData(url) {
     .catch((err) => console.log(err.message));
   return hotels;
 }
+
+export default getData;

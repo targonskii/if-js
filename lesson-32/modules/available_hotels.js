@@ -1,4 +1,4 @@
-import { getData } from './get_data.js';
+import getData from './get_data.js';
 
 const body = document.querySelector('body');
 
@@ -19,7 +19,6 @@ availableH1.after(availableSliderDiv);
 export const showAvailable = () => {
   sectionAvailable.style.display = 'block';
 };
-document.querySelector('.header__form_submit').addEventListener('click', showAvailable);
 
 export async function availableHotels(urlStr) {
   const data = await getData(urlStr);
@@ -27,19 +26,17 @@ export async function availableHotels(urlStr) {
   data.slice(0, 4).forEach((item) => {
     const div = document.createElement('div');
     availableSliderDiv.prepend(div);
-  
+    
     const a = document.createElement('a');
     a.setAttribute('src', '#');
     div.prepend(a);
-  
     const img = document.createElement('img');
     img.setAttribute('src', `${item.imageUrl}`, 'alt', `${item.name}`);
     a.prepend(img);
-  
     const pAvailable = document.createElement('p');
     pAvailable.innerHTML = `${item.name}`;
     a.append(pAvailable);
-  
+    
     const pAvCityCountry = document.createElement('p');
     pAvCityCountry.innerHTML = `${item.city}, ${item.country}`;
     pAvailable.after(pAvCityCountry);
